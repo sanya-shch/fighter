@@ -42,4 +42,25 @@ const kenji = {
   facingRight: false,
 };
 
-export { samuraiMack, kenji };
+const medievalKing = {
+  spriteName: "samuraiMack",
+  velocity: {
+    x: 0,
+    y: 0,
+  },
+  imageSrc: sprites.medievalKing.idle.imageSrc,
+  framesMax: 8,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 110,
+  },
+  sprites: sprites.medievalKing,
+  attackBox: {
+    width: 160,
+    height: 50,
+  },
+  facingRight: true,
+};
+
+export { samuraiMack, kenji, medievalKing };

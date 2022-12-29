@@ -14,6 +14,14 @@ import kenjiAttack1 from "../assets/kenji/Attack1.png";
 import kenjiTakeHit from "../assets/kenji/Take hit.png";
 import kenjiDeath from "../assets/kenji/Death.png";
 
+import medievalKingIdle from "../assets/Medieval King Pack 2/Idle.png";
+import medievalKingRun from "../assets/Medieval King Pack 2/Run.png";
+import medievalKingJump from "../assets/Medieval King Pack 2/Jump.png";
+import medievalKingFall from "../assets/Medieval King Pack 2/Fall.png";
+import medievalKingAttack1 from "../assets/Medieval King Pack 2/Attack1.png";
+import medievalKingTakeHit from "../assets/Medieval King Pack 2/Take Hit - white silhouette.png";
+import medievalKingDeath from "../assets/Medieval King Pack 2/Death.png";
+
 const samuraiMack = {
   idle: {
     imageSrc: samuraiMackIdle,
@@ -76,4 +84,35 @@ const kenji = {
   },
 };
 
-export { samuraiMack, kenji };
+const medievalKing = {
+  idle: {
+    imageSrc: medievalKingIdle,
+    framesMax: 8,
+  },
+  run: {
+    imageSrc: medievalKingRun,
+    framesMax: 8,
+  },
+  jump: {
+    imageSrc: medievalKingJump,
+    framesMax: 2,
+  },
+  fall: {
+    imageSrc: medievalKingFall,
+    framesMax: 2,
+  },
+  attack1: {
+    imageSrc: medievalKingAttack1,
+    framesMax: 4,
+  },
+  takeHit: {
+    imageSrc: medievalKingTakeHit,
+    framesMax: 4,
+  },
+  death: {
+    imageSrc: medievalKingDeath,
+    framesMax: 6,
+  },
+};
+
+export { samuraiMack, kenji, medievalKing };
