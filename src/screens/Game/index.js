@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { observer } from "mobx-react-lite";
+import { gsap } from "gsap";
 
 import "./style.scss";
 
@@ -8,35 +9,12 @@ import HealthPanel from "../../components/HealthPanel";
 import useKeyPress from "../../hooks/useKeyPress";
 import gameStore from "../../store/game.js";
 import { rectangularCollision } from "../../utils/rectangularCollision";
+import Text from "../../components/Text";
+import useInterval from "../../hooks/useInterval";
+import { GAME_TIME } from "../../constants";
 
 const GamePage = observer(() => {
   const canvasRef = useRef(null);
-
-  // const determineWinner = ({ player, enemy, timerId }) => {
-  //   clearTimeout(timerId);
-  //   document.querySelector("#displayText").style.display = "flex";
-  //   if (player.health === enemy.health) {
-  //     document.querySelector("#displayText").innerHTML = "Tie";
-  //   } else if (player.health > enemy.health) {
-  //     document.querySelector("#displayText").innerHTML = "Player 1 Wins";
-  //   } else if (player.health < enemy.health) {
-  //     document.querySelector("#displayText").innerHTML = "Player 2 Wins";
-  //   }
-  // };
-
-  // let timer = 60
-  // let timerId
-  // function decreaseTimer() {
-  //   if (timer > 0) {
-  //     timerId = setTimeout(decreaseTimer, 1000)
-  //     timer--
-  //     document.querySelector('#timer').innerHTML = timer
-  //   }
-  //
-  //   if (timer === 0) {
-  //     determineWinner({ player, enemy, timerId })
-  //   }
-  // }
 
   useKeyPress(
     (event) => {
@@ -175,9 +153,9 @@ const GamePage = observer(() => {
         gameStore.player2.takeHit();
         gameStore.setPlayerOneIsAttacking(false);
 
-        // gsap.to('#enemyHealth', {
-        //   width: gameStore.player2.health + '%'
-        // })
+        gsap.to("#enemyHealth", {
+          width: gameStore.player2.health + "%",
+        });
       }
 
       // if player misses
@@ -200,9 +178,9 @@ const GamePage = observer(() => {
         gameStore.player1.takeHit();
         gameStore.setPlayerTwoIsAttacking(false);
 
-        // gsap.to('#playerHealth', {
-        //   width: gameStore.player1.health + '%'
-        // })
+        gsap.to("#playerHealth", {
+          width: gameStore.player1.health + "%",
+        });
       }
 
       // if player misses
@@ -215,24 +193,35 @@ const GamePage = observer(() => {
 
       // end game based on health
       if (gameStore.player2.health <= 0 || gameStore.player1.health <= 0) {
-        // determineWinner({
-        //   player: gameStore.player1,
-        //   enemy: gameStore.player2,
-        //   timerId,
-        // });
+        gameStore.endGame();
       }
     }
   };
 
+  const [count, setCount] = React.useState(GAME_TIME);
+
+  useInterval(
+    () => {
+      if (count === 0) {
+        gameStore.endGame();
+      } else {
+        setCount(count - 1);
+      }
+    },
+    gameStore.isPlaying ? 1000 : null
+  );
+
   useEffect(() => {
     gameStore.setPlayers();
+    setCount(GAME_TIME);
+    gameStore.setPlaying(true);
   }, []);
 
   return (
-    <div>
-      GamePage
-      <HealthPanel />
+    <div className="game_page">
+      <HealthPanel count={count} />
       <Canvas ref={canvasRef} draw={draw} />
+      <Text />
     </div>
   );
 });

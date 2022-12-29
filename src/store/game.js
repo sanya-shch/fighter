@@ -6,6 +6,7 @@ import { Sprite } from "../classes/Sprite.js";
 import backgroundImg from "../assets/background.png";
 import shopImg from "../assets/shop.png";
 import * as sprites from "../data/sprites.js";
+import { GAME_TEXT } from "../constants";
 
 class GameStore {
   canvasWidth = 1024;
@@ -52,6 +53,10 @@ class GameStore {
     },
   };
 
+  gameText = GAME_TEXT.NOTHING;
+
+  isPlaying = false;
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -60,7 +65,7 @@ class GameStore {
     this.player1 = new Fighter({
       spriteName: this.player1Sprite,
       position: {
-        x: 0,
+        x: 50,
         y: 0,
       },
       velocity: {
@@ -90,7 +95,7 @@ class GameStore {
     this.player2 = new Fighter({
       spriteName: this.player2Sprite,
       position: {
-        x: 400,
+        x: 900,
         y: 100,
       },
       velocity: {
@@ -142,6 +147,26 @@ class GameStore {
   }
   setPlayerTwoVelocity(param, value) {
     this.player2.velocity[param] = value;
+  }
+
+  endGame() {
+    this.isPlaying = false;
+
+    if (this.player1.health === this.player2.health) {
+      this.gameText = GAME_TEXT.TIE;
+    } else if (this.player1.health > this.player2.health) {
+      this.gameText = GAME_TEXT.PLAYER_1_WINS;
+    } else if (this.player1.health < this.player2.health) {
+      this.gameText = GAME_TEXT.PLAYER_2_WINS;
+    }
+  }
+
+  setGameText(value) {
+    this.gameText = value;
+  }
+
+  setPlaying(value) {
+    this.isPlaying = value !== undefined ? value : !this.isPlaying;
   }
 }
 
