@@ -22,6 +22,30 @@ import medievalKingAttack1 from "../assets/Medieval King Pack 2/Attack1.png";
 import medievalKingTakeHit from "../assets/Medieval King Pack 2/Take Hit - white silhouette.png";
 import medievalKingDeath from "../assets/Medieval King Pack 2/Death.png";
 
+import medievalWarriorIdle from "../assets/Medieval Warrior Pack 3/Idle.png";
+import medievalWarriorRun from "../assets/Medieval Warrior Pack 3/Run.png";
+import medievalWarriorJump from "../assets/Medieval Warrior Pack 3/Jump.png";
+import medievalWarriorFall from "../assets/Medieval Warrior Pack 3/Fall.png";
+import medievalWarriorAttack1 from "../assets/Medieval Warrior Pack 3/Attack1.png";
+import medievalWarriorTakeHit from "../assets/Medieval Warrior Pack 3/Get Hit.png";
+import medievalWarriorDeath from "../assets/Medieval Warrior Pack 3/Death.png";
+
+import martialHeroIdle from "../assets/Martial Hero 3/Idle.png";
+import martialHeroRun from "../assets/Martial Hero 3/Run.png";
+import martialHeroJump from "../assets/Martial Hero 3/Going Up.png";
+import martialHeroFall from "../assets/Martial Hero 3/Going Down.png";
+import martialHeroAttack1 from "../assets/Martial Hero 3/Attack1.png";
+import martialHeroTakeHit from "../assets/Martial Hero 3/Take Hit.png";
+import martialHeroDeath from "../assets/Martial Hero 3/Death.png";
+
+import huntressIdle from "../assets/huntress/Idle.png";
+import huntressRun from "../assets/huntress/Run.png";
+import huntressJump from "../assets/huntress/Jump.png";
+import huntressFall from "../assets/huntress/Fall.png";
+import huntressAttack1 from "../assets/huntress/Attack1.png";
+import huntressTakeHit from "../assets/huntress/Take hit.png";
+import huntressDeath from "../assets/huntress/Death.png";
+
 const samuraiMack = {
   idle: {
     imageSrc: samuraiMackIdle,
@@ -115,4 +139,104 @@ const medievalKing = {
   },
 };
 
-export { samuraiMack, kenji, medievalKing };
+const medievalWarrior = {
+  idle: {
+    imageSrc: medievalWarriorIdle,
+    framesMax: 10,
+  },
+  run: {
+    imageSrc: medievalWarriorRun,
+    framesMax: 6,
+  },
+  jump: {
+    imageSrc: medievalWarriorJump,
+    framesMax: 2,
+  },
+  fall: {
+    imageSrc: medievalWarriorFall,
+    framesMax: 2,
+  },
+  attack1: {
+    imageSrc: medievalWarriorAttack1,
+    framesMax: 4,
+  },
+  takeHit: {
+    imageSrc: medievalWarriorTakeHit,
+    framesMax: 3,
+  },
+  death: {
+    imageSrc: medievalWarriorDeath,
+    framesMax: 9,
+  },
+};
+
+const martialHero = {
+  idle: {
+    imageSrc: martialHeroIdle,
+    framesMax: 10,
+  },
+  run: {
+    imageSrc: martialHeroRun,
+    framesMax: 8,
+  },
+  jump: {
+    imageSrc: martialHeroJump,
+    framesMax: 3,
+  },
+  fall: {
+    imageSrc: martialHeroFall,
+    framesMax: 3,
+  },
+  attack1: {
+    imageSrc: martialHeroAttack1,
+    framesMax: 7,
+  },
+  takeHit: {
+    imageSrc: martialHeroTakeHit,
+    framesMax: 3,
+  },
+  death: {
+    imageSrc: martialHeroDeath,
+    framesMax: 11,
+  },
+};
+
+const huntress = {
+  idle: {
+    imageSrc: huntressIdle,
+    framesMax: 8,
+  },
+  run: {
+    imageSrc: huntressRun,
+    framesMax: 8,
+  },
+  jump: {
+    imageSrc: huntressJump,
+    framesMax: 2,
+  },
+  fall: {
+    imageSrc: huntressFall,
+    framesMax: 2,
+  },
+  attack1: {
+    imageSrc: huntressAttack1,
+    framesMax: 5,
+  },
+  takeHit: {
+    imageSrc: huntressTakeHit,
+    framesMax: 3,
+  },
+  death: {
+    imageSrc: huntressDeath,
+    framesMax: 8,
+  },
+};
+
+export {
+  samuraiMack,
+  kenji,
+  medievalKing,
+  medievalWarrior,
+  martialHero,
+  huntress,
+};

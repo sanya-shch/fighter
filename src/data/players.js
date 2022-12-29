@@ -43,7 +43,7 @@ const kenji = {
 };
 
 const medievalKing = {
-  spriteName: "samuraiMack",
+  spriteName: "medievalKing",
   velocity: {
     x: 0,
     y: 0,
@@ -63,4 +63,74 @@ const medievalKing = {
   facingRight: true,
 };
 
-export { samuraiMack, kenji, medievalKing };
+const medievalWarrior = {
+  spriteName: "medievalWarrior",
+  velocity: {
+    x: 0,
+    y: 0,
+  },
+  imageSrc: sprites.medievalWarrior.idle.imageSrc,
+  framesMax: 10,
+  scale: 3,
+  offset: {
+    x: 215,
+    y: 105,
+  },
+  sprites: sprites.medievalWarrior,
+  attackBox: {
+    width: 160,
+    height: 50,
+  },
+  facingRight: true,
+};
+
+const martialHero = {
+  spriteName: "martialHero",
+  velocity: {
+    x: 0,
+    y: 0,
+  },
+  imageSrc: sprites.martialHero.idle.imageSrc,
+  framesMax: 10,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 53,
+  },
+  sprites: sprites.martialHero,
+  attackBox: {
+    width: 160,
+    height: 50,
+  },
+  facingRight: true,
+};
+
+const huntress = {
+  spriteName: "huntress",
+  velocity: {
+    x: 0,
+    y: 0,
+  },
+  imageSrc: sprites.huntress.idle.imageSrc,
+  framesMax: 8,
+  scale: 2.5,
+  offset: {
+    x: 215,
+    y: 90,
+  },
+  sprites: sprites.huntress,
+  attackBox: {
+    width: 160,
+    height: 50,
+  },
+  facingRight: true,
+};
+
+export {
+  samuraiMack,
+  kenji,
+  medievalKing,
+  medievalWarrior,
+  martialHero,
+  huntress,
+};

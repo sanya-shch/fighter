@@ -68,7 +68,7 @@ class GameStore {
       gravity: this.gravity,
       side: "left",
       position: {
-        x: 50,
+        x: 100,
         y: 0,
       },
       attackBox: {
