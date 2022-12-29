@@ -14,6 +14,8 @@ export class Fighter extends Sprite {
     canvasHeight,
     gravity,
     spriteName,
+    facingRight,
+    side,
   }) {
     super({
       position,
@@ -49,6 +51,9 @@ export class Fighter extends Sprite {
     this.gravity = gravity;
     this.spriteName = spriteName;
 
+    this.facingRight = facingRight;
+    this.side = side;
+
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image();
       sprites[sprite].image.src = sprites[sprite].imageSrc;
@@ -56,7 +61,40 @@ export class Fighter extends Sprite {
   }
 
   update(ctx) {
-    this.draw(ctx);
+    // this.draw(ctx);
+
+    // ctx.fillStyle = this.color;
+    // ctx.fillRect(this.position.x, this.position.y, 50, this.height);
+
+    if ((this.side === "right" && this.facingRight) || (this.side === "left" && !this.facingRight)) {
+      ctx.save();
+      ctx.scale(-1, 1);
+      ctx.drawImage(
+        this.image,
+        this.framesCurrent * (this.image.width / this.framesMax),
+        0,
+        this.image.width / this.framesMax,
+        this.image.height,
+        -(this.position.x - this.offset.x) - (this.image.width / this.framesMax) * 2 - 100,
+        this.position.y - this.offset.y,
+        (this.image.width / this.framesMax) * this.scale,
+        this.image.height * this.scale
+      );
+      ctx.restore();
+    } else {
+      ctx.drawImage(
+        this.image,
+        this.framesCurrent * (this.image.width / this.framesMax),
+        0,
+        this.image.width / this.framesMax,
+        this.image.height,
+        this.position.x - this.offset.x,
+        this.position.y - this.offset.y,
+        (this.image.width / this.framesMax) * this.scale,
+        this.image.height * this.scale
+      );
+    }
+
     if (!this.dead) this.animateFrames();
 
     // attack boxes
@@ -64,6 +102,7 @@ export class Fighter extends Sprite {
     this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
     // draw the attack box
+    // ctx.fillStyle = "green";
     // ctx.fillRect(
     //   this.attackBox.position.x,
     //   this.attackBox.position.y,

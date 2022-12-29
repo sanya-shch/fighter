@@ -5,7 +5,7 @@ import { Sprite } from "../classes/Sprite.js";
 
 import backgroundImg from "../assets/background.png";
 import shopImg from "../assets/shop.png";
-import * as sprites from "../data/sprites.js";
+import * as players from "../data/players.js";
 import { GAME_TEXT } from "../constants";
 
 class GameStore {
@@ -63,64 +63,40 @@ class GameStore {
 
   setPlayers() {
     this.player1 = new Fighter({
-      spriteName: this.player1Sprite,
+      ...players[this.player1Sprite],
+      canvasHeight: this.canvasHeight,
+      gravity: this.gravity,
+      side: "left",
       position: {
         x: 50,
         y: 0,
       },
-      velocity: {
-        x: 0,
-        y: 0,
-      },
-      imageSrc: sprites[`${this.player1Sprite}Idle`],
-      framesMax: 8,
-      scale: 2.5,
-      offset: {
-        x: 215,
-        y: 157,
-      },
-      sprites: sprites[this.player1Sprite],
       attackBox: {
         offset: {
-          x: 100,
+          x: 50,
           y: 50,
         },
-        width: 160,
-        height: 50,
+        ...players[this.player1Sprite].attackBox,
       },
-      canvasHeight: this.canvasHeight,
-      gravity: this.gravity,
+      color: "blue",
     });
 
     this.player2 = new Fighter({
-      spriteName: this.player2Sprite,
+      ...players[this.player2Sprite],
+      canvasHeight: this.canvasHeight,
+      gravity: this.gravity,
+      side: "right",
       position: {
         x: 900,
         y: 100,
       },
-      velocity: {
-        x: 0,
-        y: 0,
-      },
-      color: "blue",
-      imageSrc: sprites[`${this.player2Sprite}Idle`],
-      framesMax: 4,
-      scale: 2.5,
-      offset: {
-        x: 215,
-        y: 167,
-      },
-      sprites: sprites[this.player2Sprite],
       attackBox: {
         offset: {
           x: -170,
           y: 50,
         },
-        width: 170,
-        height: 50,
+        ...players[this.player2Sprite].attackBox,
       },
-      canvasHeight: this.canvasHeight,
-      gravity: this.gravity,
     });
   }
 

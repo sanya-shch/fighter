@@ -148,7 +148,7 @@ const GamePage = observer(() => {
           rectangle2: gameStore.player2,
         }) &&
         gameStore.player1.isAttacking &&
-        gameStore.player1.framesCurrent === 4
+        gameStore.player1.framesCurrent === 2 // 4
       ) {
         gameStore.player2.takeHit();
         gameStore.setPlayerOneIsAttacking(false);
