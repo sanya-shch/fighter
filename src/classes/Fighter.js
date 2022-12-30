@@ -66,7 +66,21 @@ export class Fighter extends Sprite {
     // ctx.fillStyle = this.color;
     // ctx.fillRect(this.position.x, this.position.y, 50, this.height);
 
-    if ((this.side === "right" && this.facingRight) || (this.side === "left" && !this.facingRight)) {
+    const positionX =
+      this.position.x < -100
+        ? -100
+        : this.position.x > 1024
+        ? 1024
+        : this.position.x;
+    const positionY = this.position.y < -200 ? -200 : this.position.y;
+
+    this.position.x = positionX;
+    this.position.y = positionY;
+
+    if (
+      (this.side === "right" && this.facingRight) ||
+      (this.side === "left" && !this.facingRight)
+    ) {
       ctx.save();
       ctx.scale(-1, 1);
       ctx.drawImage(
@@ -75,7 +89,9 @@ export class Fighter extends Sprite {
         0,
         this.image.width / this.framesMax,
         this.image.height,
-        -(this.position.x - this.offset.x) - (this.image.width / this.framesMax) * 2 - 100,
+        -(this.position.x - this.offset.x) -
+          (this.image.width / this.framesMax) * 2 -
+          100,
         this.position.y - this.offset.y,
         (this.image.width / this.framesMax) * this.scale,
         this.image.height * this.scale
