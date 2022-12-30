@@ -18,7 +18,7 @@ const GamePage = observer(() => {
 
   useKeyPress(
     (event) => {
-      if (!gameStore.player1.dead) {
+      if (!gameStore.player1.dead && !gameStore.gameText) {
         switch (event.key) {
           case "d":
             gameStore.setKeys("d", "pressed", true);
@@ -37,7 +37,7 @@ const GamePage = observer(() => {
         }
       }
 
-      if (!gameStore.player2.dead) {
+      if (!gameStore.player2.dead && !gameStore.gameText) {
         switch (event.key) {
           case "ArrowRight":
             gameStore.setKeys("ArrowRight", "pressed", true);
@@ -221,7 +221,7 @@ const GamePage = observer(() => {
     <div className="game_page">
       <HealthPanel count={count} />
       <Canvas ref={canvasRef} draw={draw} />
-      <Text />
+      <Text setCount={setCount} />
     </div>
   );
 });

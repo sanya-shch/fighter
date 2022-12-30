@@ -1,24 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./style.scss";
 
-const HealthPanel = ({ count }) => (
-  <div className="health_panel">
-    <div className="player1_health_wrapper">
-      <div />
-      <div id="playerHealth" />
-    </div>
+const HealthPanel = ({ count }) => {
+  const navigate = useNavigate();
 
-    <div id="timer" className="timer_block">
-      {count}
-    </div>
+  return (
+    <div className="health_panel">
+      <div className="player1_health_wrapper">
+        <div />
+        <div id="playerHealth" />
+      </div>
 
-    <div className="player2_health_wrapper">
+      <div id="timer" className="timer_block" onClick={() => navigate("/")}>
+        {count}
+      </div>
+
+      <div className="player2_health_wrapper">
+        <div />
+        <div id="enemyHealth" />
+      </div>
       <div />
-      <div id="enemyHealth" />
     </div>
-    <div />
-  </div>
-);
+  );
+};
 
 export default HealthPanel;
