@@ -42,7 +42,7 @@ const homePagePlayersData = {
       },
       scale: 4,
       offset: {
-        x: 300,
+        x: 0,
         y: 480,
       },
     },
@@ -243,9 +243,13 @@ const HomePage = observer(() => {
   }, [canvasRightRef]);
 
   useEffect(() => {
-    gameStore.setPlayers(
-      homePagePlayersData.samuraiMack[0],
-      homePagePlayersData.kenji[1]
+    gameStore.setPlayer1(
+      gameStore.player1Sprite,
+      homePagePlayersData[gameStore.player1Sprite][0]
+    );
+    gameStore.setPlayer2(
+      gameStore.player2Sprite,
+      homePagePlayersData[gameStore.player2Sprite][1]
     );
   }, []);
 

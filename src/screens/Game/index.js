@@ -11,7 +11,7 @@ import gameStore from "../../store/game.js";
 import { rectangularCollision } from "../../utils/rectangularCollision";
 import Text from "../../components/Text";
 import useInterval from "../../hooks/useInterval";
-import { GAME_TIME } from "../../constants";
+import { GAME_TEXT, GAME_TIME } from "../../constants";
 
 const GamePage = observer(() => {
   const canvasRef = useRef(null);
@@ -213,8 +213,9 @@ const GamePage = observer(() => {
 
   useEffect(() => {
     gameStore.setPlayers();
-    setCount(GAME_TIME);
+    gameStore.setGameText(GAME_TEXT.NOTHING);
     gameStore.setPlaying(true);
+    setCount(GAME_TIME);
   }, []);
 
   return (
