@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/fighter/static/css/main.42b258a0.css",
+    "main.js": "/fighter/static/js/main.e139e589.js",
+    "static/css/851.e8a45458.chunk.css": "/fighter/static/css/851.e8a45458.chunk.css",
+    "static/js/851.34dfc73b.chunk.js": "/fighter/static/js/851.34dfc73b.chunk.js",
+    "static/media/background.png": "/fighter/static/media/background.3ed950731455d7715e89.png",
+    "static/media/shop.png": "/fighter/static/media/shop.c609dd4aae9185dfa3d1.png",
+    "static/media/Death.png": "/fighter/static/media/Death.2b3515119b862cc76655.png",
+    "static/media/Run.png": "/fighter/static/media/Run.066a893541826d62751f.png",
+    "index.html": "/fighter/index.html",
+    "main.42b258a0.css.map": "/fighter/static/css/main.42b258a0.css.map",
+    "main.e139e589.js.map": "/fighter/static/js/main.e139e589.js.map",
+    "851.e8a45458.chunk.css.map": "/fighter/static/css/851.e8a45458.chunk.css.map",
+    "851.34dfc73b.chunk.js.map": "/fighter/static/js/851.34dfc73b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42b258a0.css",
+    "static/js/main.e139e589.js"
+  ]
+}
