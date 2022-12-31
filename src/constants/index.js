@@ -6,3 +6,12 @@ export const GAME_TEXT = {
   PLAYER_1_WINS: "Player 1 Wins",
   PLAYER_2_WINS: "Player 2 Wins",
 };
+
+export const PLAYERS_LIST = [
+  "samuraiMack",
+  "kenji",
+  "medievalKing",
+  "medievalWarrior",
+  "martialHero",
+  "huntress",
+];

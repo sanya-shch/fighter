@@ -61,7 +61,7 @@ class GameStore {
     makeAutoObservable(this);
   }
 
-  setPlayers() {
+  setPlayers(additionalDataP1 = {}, additionalDataP2 = {}) {
     this.player1 = new Fighter({
       ...players[this.player1Sprite],
       canvasHeight: this.canvasHeight,
@@ -79,6 +79,7 @@ class GameStore {
         ...players[this.player1Sprite].attackBox,
       },
       color: "blue",
+      ...additionalDataP1,
     });
 
     this.player2 = new Fighter({
@@ -97,6 +98,7 @@ class GameStore {
         },
         ...players[this.player2Sprite].attackBox,
       },
+      ...additionalDataP2,
     });
   }
 
@@ -143,6 +145,52 @@ class GameStore {
 
   setPlaying(value) {
     this.isPlaying = value !== undefined ? value : !this.isPlaying;
+  }
+
+  setPlayer1(value, additionalData) {
+    this.player1Sprite = value;
+
+    this.player1 = new Fighter({
+      ...players[value],
+      canvasHeight: this.canvasHeight,
+      gravity: this.gravity,
+      side: "left",
+      position: {
+        x: 100,
+        y: 0,
+      },
+      attackBox: {
+        offset: {
+          x: 50,
+          y: 50,
+        },
+        ...players[value].attackBox,
+      },
+      color: "blue",
+      ...additionalData,
+    });
+  }
+  setPlayer2(value, additionalData) {
+    this.player2Sprite = value;
+
+    this.player2 = new Fighter({
+      ...players[value],
+      canvasHeight: this.canvasHeight,
+      gravity: this.gravity,
+      side: "right",
+      position: {
+        x: 900,
+        y: 100,
+      },
+      attackBox: {
+        offset: {
+          x: -170,
+          y: 50,
+        },
+        ...players[value].attackBox,
+      },
+      ...additionalData,
+    });
   }
 }
 
